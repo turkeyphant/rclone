@@ -18,10 +18,10 @@ var (
 )
 
 const (
-	debugDumpTxPacket      = false
-	debugDumpRxPacket      = false
-	debugDumpTxPacketBytes = false
-	debugDumpRxPacketBytes = false
+	debugDumpTxPacket      = true
+	debugDumpRxPacket      = true
+	debugDumpTxPacketBytes = true
+	debugDumpRxPacketBytes = true
 )
 
 func marshalUint32(b []byte, v uint32) []byte {
