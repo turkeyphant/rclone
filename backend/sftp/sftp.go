@@ -1068,7 +1068,8 @@ func newObjectReader(sftpFile *sftp.File) *objectReader {
 	go func() {
 		// Use sftpFile.WriteTo to pump data so that it gets a
 		// chance to build the window up.
-		_, err := sftpFile.WriteTo(pipeWriter)
+		//FIXME _, err := sftpFile.WriteTo(pipeWriter)
+		_, err := io.Copy(pipeWriter, sftpFile) // FIXME test
 		// Close the pipeWriter so the pipeReader fails with
 		// the same error or EOF if err == nil
 		_ = pipeWriter.CloseWithError(err)
