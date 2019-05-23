@@ -10,6 +10,7 @@ import (
 	"github.com/ncw/rclone/fs"
 	"github.com/ncw/rclone/fs/fserrors"
 	"github.com/ncw/rclone/fs/rc"
+	"github.com/hako/durafmt"
 )
 
 var (
@@ -171,7 +172,7 @@ func etaString(done, total int64, rate float64) string {
 	if !ok {
 		return "-"
 	}
-	return d.String()
+	return durafmt.Parse(d).String()
 }
 
 // percent returns a/b as a percentage rounded to the nearest integer
